@@ -7,6 +7,7 @@
 * {
   margin: 0%;
   padding: 0%;
+  box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
 }
@@ -50,7 +51,7 @@ nav .navbar{
 }
 nav .navbar .logo {
   font-weight: 500;
-  font-size: 35px;
+  font-size: 1.6rem;
   color: rgb(255, 229, 0);
 }
 nav.sticky .navbar .logo {
@@ -158,7 +159,7 @@ nav.sticky .menu-btn{
 }
 .hero .content .media-icons{
   position: absolute;
-  right: 84%;
+  right: 80%;
   top: 60%;
   display: flex;
   justify-content: center;
@@ -223,16 +224,16 @@ section .title span::after{
 .about .about-content{
   display: flex;
   flex-direction:row;
+  gap: 10%;
   justify-content: center;
   align-items: center;
-  margin: 40px;
 }
 .about .about-content .about-img{
-  width: 45%;
+  width: 40%;
 }
 .about .about-content .about-img img{
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 15px;
 }
@@ -380,7 +381,6 @@ section .title span::after{
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .experience .container::after {
   content: '';
   position: absolute;
@@ -394,7 +394,7 @@ section .title span::after{
 }
 .experience .container .container-e{
   color: #FFFFFF;
-  padding: 10px 40px;
+  padding: 10px;
   position: relative;
   width: 50%;
 }
@@ -414,8 +414,8 @@ section .title span::after{
   color:rgb(255, 229, 0);
   font-family: 'Font Awesome\ 5 Free';
 }
-.experience .left {
-  left: -7%;
+.experience .container.left {
+  left: 0;
 }
 .experience .right {
   left: 50%;
@@ -430,7 +430,7 @@ section .title span::after{
   right: 30px;
   border: medium solid rgb(255,229, 0);
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #f68c09;
+  border-color: transparent transparent transparent rgb(255, 229, 0);
 }
 .experience .right::before {
   content: " ";
@@ -449,6 +449,7 @@ section .title span::after{
 }
 .experience .content-e {
   background-color: rgb(255,229, 0);
+  width: 100%;
   position: relative;
   border-radius: 6px;
 }
@@ -468,7 +469,7 @@ section .title span::after{
 .experience .content-e .desc p{
   font-size: 1.2rem;
 }
-@media screen and (max-width: 750px){
+@media screen and (max-width: 600px){
   .experience{
     min-height: 80vh;
   }
@@ -476,7 +477,7 @@ section .title span::after{
     margin-top: 2rem;
   }
   .experience .container::after {
-  left: 3px;
+  left: 31px;
   }
   .experience .container-e {
   width: 100%;
@@ -493,10 +494,10 @@ section .title span::after{
   border-color: transparent rgb(255,229, 0) transparent transparent;
   }
   .experience .left::after {
-    left: 20px;
+    left: 15px;
   }
   .experience .right::after {
-    left: 20px;
+    left: 15px;
   }
   .experience .right {
   left: 0%;
@@ -508,78 +509,62 @@ section .title span::after{
   background: rgb(16, 3, 60);
 }
 .projects .content .container{
-  display: flex;
-  flex-wrap: wrap;
-  gap:1.5rem;
-  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 40px;
+  margin-top: 50px;
 }
 .projects .content .container .box{
-  flex:1 1 30rem;
   border-radius: .5rem;
   position: relative;
   overflow:hidden;
-  height:30rem;
 }
-.projects .content .container .box img{
+ .box img{
+  border-radius: .5rem;
+  display: block;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  transition: transfrom 0.5s ease;
 }
-.projects .content .container .box .content-p{
-  height: 100%;
+.content-p{
+  height: 0%;
   width:100%;
   position: absolute;
-  top:85%; 
-  left:0;
-  background:rgb(255,229,0);
-  display: flex;
-  flex-direction: column;
-  transition:  .5s ease;
-}
-.projects .content .container .box .content-p .tag{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 4.5rem;
-  width: 100%;
-  padding-left: 1rem;
-  background: #ffd900;
-}
-.projects .content .container .box .content-p .tag h3{
-  font-size: 2rem;
-}
-.projects .content .container .box:hover .content-p{
-  top:25%;
-}
-.projects .content .desc{
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.projects .content .desc p{
-  font-size: 1.5rem;
-}
-.projects .content .desc .btn-1{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 2rem;
-}
-.projects .content .desc .btn-1 .btn-2{
-  line-height: 0;
-  display: inline;
-  padding: 1.5rem 2.5rem;
   border-radius: .5rem;
-  font-size: 1.5rem;
+  left:0;
+  bottom: 0;
+  background:linear-gradient(rgba(16, 3, 60, 0.6),rgb(255,229,0));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  font-size: 14px;
   color: #fff;
-  background: rgb(12, 12, 12);
-  margin-right: 2rem;
-  transition: background .5s ease;
+  transition: height 0.5s;
 }
-.projects .content .desc .btn-1 .btn-2:hover{
-  background: rgb(255,229,0);
+.content-p h3{
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #FFF;
+}
+.content-p a{
+  margin-top: 20px;
+  text-decoration: none;
+  color: rgb(16, 3, 60);
+  font-size: 18px;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: .5rem;
+}
+.box:hover img{
+  transform: scale(1.1);
+}
+.box:hover .content-p{
+  height: 100%;
 }
 
 /* Contact Me CSS */
@@ -668,6 +653,11 @@ footer .text span a{
 footer .text span a:hover{
   text-decoration: underline;
 }
+#msg{
+  color: #FFFFFF;
+  margin-top: 10px;
+  display: block;
+}
 
 /* Scroll TO Top Button CSS */
 .scroll-button a{
@@ -724,8 +714,8 @@ footer .text span a:hover{
   }
 }
 @media (max-width: 750px) {
-  nav .navbar{
-    width: 90%;
+  nav{
+    display: block;
   }
   nav .navbar .nav-links{
     position: fixed;
@@ -792,6 +782,15 @@ footer .text span a:hover{
 }
 
 @media (max-width: 500px){
+  html{
+    font-size: 60%;
+  }
+  section{
+    padding: 2rem;
+  }
+  .hero{
+    background: rgb(12, 12, 12);
+  }
   .hero h2{
     font-size: 55px;
   }

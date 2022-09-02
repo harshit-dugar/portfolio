@@ -50,6 +50,23 @@ for (var i = 0; i < navLinks.length; i++) {
       });
 }
 
+const scriptURL = 'https://script.google.com/macros/s/AKfycby5hBcyHBGmi981mhFc6XKSH1ynQo-xJl04BqMvpS-pdzbIT48XK_l_lbBWxQS2CtSjvQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message Sent Successfully"
+        setTimeout(function(){
+          msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+
 //scroll efect
 const srtop = ScrollReveal({
   origin: 'top',
