@@ -628,10 +628,21 @@ form input, form textarea{
   border-radius: .5rem;
 }
 form button{
-  padding: 14px;
-  font-size: 18px;
   margin-top: 20px;
+  outline: none;
+  padding: 8px 16px;
+  font-size: 20px;
+  font-weight: 400;
+  background: rgb(255,229, 0);
+  color: white;
   cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+}
+form button:hover{
+  border: 2px solid rgb(255, 229, 0);
+  background: transparent;
+  color:#FFFFFF;
 }
 
 /* Footer Start */
