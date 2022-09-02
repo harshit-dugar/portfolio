@@ -394,7 +394,7 @@ section .title span::after{
 }
 .experience .container .container-e{
   color: #FFFFFF;
-  padding: 10px;
+  padding: 30px;
   position: relative;
   width: 50%;
 }
@@ -502,6 +502,9 @@ section .title span::after{
   .experience .right {
   left: 0%;
   }
+  .experience .content-e{
+    width: 200px;
+  }
 }
 
 /* Projects Start */
@@ -586,6 +589,9 @@ section .title span::after{
 }
 .contact .content .row .contact-right{
   flex-basis: 60%;
+}
+.contact-left img{
+  border-radius: 15px;
 }
 .row .contact-left p{
   font-size: 1.5rem;
@@ -790,6 +796,9 @@ footer .text span a:hover{
   .contact .text{
     width: 100%;
 }
+.contact-left, .contact-right{
+  flex-basis: 100%;
+}
 }
 
 @media (max-width: 500px){
@@ -806,6 +815,12 @@ footer .text span a:hover{
     font-size: 55px;
   }
   .hero h3{
+    font-size: 30px;
+  }
+  form{
+    width: 100%;
+  }
+  footer .text{
     font-size: 30px;
   }
 }
